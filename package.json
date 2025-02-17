@@ -1,5 +1,5 @@
 {
-  "name": "vue-s3-deploy",
+  "name": "@warnax-corp/vue-s3-deploy",
   "version": "1.0.0",
   "description": "Upload vue build files to s3",
   "main": "index.js",

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
-const AWS = require('aws-sdk');
 const program = require('commander');
 const mime = require('mime');
+const { S3 } = require('@aws-sdk/client-s3');
 
 program
   .arguments('<bucket>')
@@ -19,7 +19,7 @@ program
       apiVersion: '2006-03-01',
       endpoint: 'https://s3.amazonaws.com',
     };
-    const client = new AWS.S3(clientConfig);
+    const client = new S3(clientConfig);
     Promise.all(
       files.map(file => {
         let ContentType;
@@ -29,13 +29,12 @@ program
           ContentType = mime.getType(file);
         }
         return client
-          .upload({
+          .putObject({
             ContentType,
             Bucket: bucket,
             Key: file.slice(5),
             Body: fs.readFileSync(file),
           })
-          .promise()
           .catch(console.error);
       })
     ).then(completed => {

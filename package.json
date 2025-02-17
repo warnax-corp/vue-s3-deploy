@@ -1,6 +1,6 @@
 {
   "name": "@warnax-corp/vue-s3-deploy",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Upload vue build files to s3",
   "main": "index.js",
   "author": "Kosuke Matsubara <kosuke@warnax.co.jp>",
@@ -17,5 +17,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/warnax-corp/vue-s3-deploy"
-  }
+  },
+  "keywords": [
+    "vue",
+    "s3",
+    "aws",
+    "upload",
+    "deploy",
+    "vue-s3-deploy",
+    "v3"
+  ]
 }
